@@ -1,0 +1,12 @@
+fp_name: tfp
+begin_time: 2019-03-20 16:02:10
+default_delay: 1
+
+param mem 1
+param list
+delay 00:00:08 #delay hh:mm:ss in addition to the default delay 
+param mem 1
+param set en_payload 1
+delay 00:30:00
+param mem 1
+param list
