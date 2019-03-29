@@ -3,3 +3,30 @@ https://community.plot.ly/t/multiple-y-axes-name-on-top-of-each-other/10663
 
 multiple axis plotly example that can be translated to dash. 
 https://plot.ly/python/multiple-axes/
+
+html.Div([
+html.Label(‘Start Time:’),
+dcc.Input(
+id=‘start-time-input’,
+type=‘datetime-local’,
+value=dt.strftime(dt.utcnow() - pd.offsets.BDay(10), ‘%Y-%m-%dT%H:%M’),
+className=‘form-control’,
+),
+]),
+html.Div([
+html.Label(‘End Time:’),
+dcc.Input(
+id=‘end-time-input’,
+type=‘datetime-local’,
+value=dt.strftime(dt.utcnow() - pd.offsets.Minute(10), ‘%Y-%m-%dT%H:%M’),
+className=‘form-control’,
+),
+]),
+
+to restore mongodump 
+mongorestore --db <new name for the database> <path to old database name in the dump>
+
+cd to the dump folder CQT is the original database CQT2 is a compy of the database. 
+mongorestore --db CQT2 CQT
+
+

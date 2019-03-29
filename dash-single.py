@@ -6,7 +6,7 @@ import plotly.graph_objs as go
 import time
 import datetime
 from pymongo import MongoClient
-import pymongo
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -41,7 +41,7 @@ def getdata(pname,idx=None,node=None,st=None,et=None,scaling_factor=1):
 
     conditions.append({'Ts':Ts_conditions})
 
-    results = db.ParamData.find( {'$and':conditions} ).sort( { "Ts": pymongo.DESCENDING } )
+    results = db.ParamData.find( {'$and':conditions} )
     
     Ts = []
     Vals = []
@@ -61,8 +61,9 @@ axis_dict = {
 }
 
 
-Ts, Val, pname,idx ,node = getdata(pname='boot_count',node=1)#,st=1546844400,et=1547535600)    
+#Ts, Val, pname,idx ,node = getdata(pname='boot_count',node=1)#,st=1546844400,et=1547535600)    
 #Ts2,Val2,pname2,idx2 = getdata(pname='vbatt',scaling_factor=1000)    
+Ts,Val,pname,idx, node = getdata(pname='vbatt', st=1546844400,et=1547535600,scaling_factor=1000)        
 
 Tsdt = [ time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)) for x in Ts]
 
