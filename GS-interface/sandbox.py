@@ -77,3 +77,53 @@ html.Div(id='main-tab-selection', style={'display': 'none'}),
               [Input("main-tabs", 'value')])
 def update_main_tab_selection(main_tab):
     return main_tab
+
+
+
+def eps_context_fig(eps,tab):
+    if tab == 'eps-vbatt':
+        return html.Div(className="figure",children=[
+            dcc.Graph(
+                id='context-plot',
+                figure={
+                    'data': [{
+                        #x=eps.params['vbatt'].sTs, 
+                        #y=eps.params['vbatt'].Vals,
+                        'x': eps.params['vbatt'].sTs,
+                        'y': eps.params['vbatt'].Vals,
+                        'type': 'scatter'
+                    }]
+                }
+            )
+        ])
+    elif tab == "eps-c-obc":
+        return html.Div(className="figure",children=[
+            dcc.Graph(
+                id='context-plot',
+                figure={
+                    'data': [{
+                        #x=eps.params['vbatt'].sTs, 
+                        #y=eps.params['vbatt'].Vals,
+                        'x': eps.params['C_obc'].sTs,
+                        'y': eps.params['C_obc'].Vals,
+                        'type': 'scatter'
+                    }]
+                }
+            )
+        ])
+    elif tab == "eps-c-radio":
+        return html.Div(className="figure",children=[
+            dcc.Graph(
+                id='context-plot',
+                figure={
+                    'data': [{
+                        #x=eps.params['vbatt'].sTs, 
+                        #y=eps.params['vbatt'].Vals,
+                        'x': eps.params['C_radio'].sTs,
+                        'y': eps.params['C_radio'].Vals,
+                        'type': 'scatter'
+                    }]
+                }
+            )
+        ])
+    
