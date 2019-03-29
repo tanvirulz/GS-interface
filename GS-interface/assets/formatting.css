@@ -1,0 +1,34 @@
+.mainheader { grid-area: header; }
+.info { grid-area: info; }
+.subheader { 
+        grid-area: subhead; 
+  }
+.contextinfo { 
+grid-area: cinfo; 
+        font-family: monospace;
+        font-size: 15px;
+        /*margin-top: 20px;
+        margin-bottom: 20px;*/
+        font-weight: 400;
+        text-align: left;
+}
+
+.figure { grid-area: plot; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'info info subhead subhead subhead subhead'
+    'info info cinfo plot plot plot';
+  grid-gap: 10px;
+  background-color: rgba(255, 0, 255, 0.1);
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 1);
+  /*text-align: center;*/
+  padding: 20px 0;
+  /*font-size: 20px;*/
+}
