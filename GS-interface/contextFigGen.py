@@ -1,4 +1,6 @@
-import Param
+#from gsclasses import *
+
+import gsclasses.Param
 
 import dash
 import dash_core_components as dcc

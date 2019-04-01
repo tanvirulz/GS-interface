@@ -16,10 +16,12 @@ import datetime
 #custom display modules
 from contextTabs import *
 
-import Eps
+from gsclasses import Eps
+
+#import Eps
 from DisplayEPS import *
 
-import Obc
+from gsclasses import Obc
 from DisplayOBC import *
 
 

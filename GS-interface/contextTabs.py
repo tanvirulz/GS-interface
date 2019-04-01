@@ -1,5 +1,7 @@
-import Eps
-import Param
+from gsclasses import Eps
+from gsclasses import Param
+#import Eps
+#import Param
 
 import dash
 import dash_core_components as dcc

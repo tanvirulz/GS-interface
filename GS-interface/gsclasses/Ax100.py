@@ -1,4 +1,3 @@
-
 import datetime
 import pymongo
 from pymongo import MongoClient
@@ -6,7 +5,8 @@ from pymongo import MongoClient
 import Param
 from Param import parameter
 
-class OBC:
+
+class AX100:
     
     def __init__(self, dbname = 'CQT', start_time=None, end_time=None):
         
@@ -21,23 +21,25 @@ class OBC:
         self.common_conditions = {}
         
         self.params = {}
-
-        self.params['curGSSB1'] = parameter('curGSSB1')               
-        self.params['curGSSB2'] = parameter('curGSSB2')
-        self.params['curflash'] = parameter('curFlash')
-        self.params['curPWM'] = parameter('curPWM')               
-        self.params['temp_a'] = parameter('temp_a')  
-        self.params['temp_b'] = parameter('temp_b')               
-        self.params['pwrGSSB1'] = parameter('pwrGSSB1')               
-        self.params['pwrGSSB2'] = parameter('pwrGSSB2')               
-        self.params['pwrflash'] = parameter('pwrFlash')               
-        self.params['pwrPWM'] = parameter('pwrPWM')               
-        self.params['swload_count'] = parameter('swload_count')               
-        self.params['fs_mounted'] = parameter('fs_mounted')               
-        self.params['boot_count'] = parameter('boot_count')               
-        self.params['boot_cause'] = parameter('boot_cause')               
-        self.params['clock'] = parameter('clock')                             
         
+        self.params['temp_brd'] = parameter('temp_brd')
+        self.params['temp_pa'] = parameter('temp_pa')
+        self.params['last_rssi'] = parameter('last_rssi')
+        self.params['last_rferr'] = parameter('last_rferr')
+        self.params['bgnd_rssi'] = parameter('bgnd_rssi')
+        self.params['tx_duty'] = parameter('tx_duty')
+        self.params['tot_tx_cnt'] = parameter('tot_tx_count')
+        self.params['tot_rx_cnt'] = parameter('tot_rx_count')
+        self.params['tot_tx_bytes'] = parameter('tot_tx_bytes')
+        self.params['tot_rx_bytes'] = parameter('tot_rx_bytes')
+        self.params['boot_count'] = parameter('boot_count')
+        self.params['boot_cause'] = parameter('boot_cause')
+        self.params['tx_bytes'] = parameter('tx_bytes')
+        self.params['rx_bytes'] = parameter('rx_bytes')
+        self.params['active_conf'] = parameter('active_conf')
+        self.params['tx_count'] = parameter('tx_count')
+        self.params['rx_count'] = parameter('rx_count')
+              
         if self.st is not None:
             self.Ts_conditions['$gte'] = int(self.st)
         else:
@@ -62,9 +64,8 @@ class OBC:
         
         
         for key, value in self.params.items():
-            value.getdata(self.db,self.Ts_conditions)
+            value.getdata(self.db,self.Ts_conditions)  
 
-            
     def test_load(self):
         for key, value in self.params.items():
             value.get_random(self.db,self.Ts_conditions)
