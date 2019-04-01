@@ -16,7 +16,14 @@ def genContextTabs(main_tab):
         return [
             dcc.Tab(label='vbatt', value='eps-vbatt'),
             dcc.Tab(label='c-obc', value='eps-C_obc'),
-            dcc.Tab(label='c-radio', value='eps-C_radio'),
+            dcc.Tab(label='c-radio', value='eps-C_radio'), #temp_0
+            dcc.Tab(label='temp_0', value='eps-temp_0'),
+            dcc.Tab(label='temp_1', value='eps-temp_1'),
+            dcc.Tab(label='temp_2', value='eps-temp_2'),
+            dcc.Tab(label='temp_3', value='eps-temp_3'),
+            dcc.Tab(label='temp_4', value='eps-temp_4'),
+            dcc.Tab(label='temp_5', value='eps-temp_5'), #C_payload
+            dcc.Tab(label='C_payload', value='eps-C_payload'),
         ]
     elif main_tab == "main-obc":
         return [

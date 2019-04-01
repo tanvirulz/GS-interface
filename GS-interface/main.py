@@ -28,15 +28,15 @@ from DisplayOBC import *
 app = dash.Dash(__name__)
 
 eps = Eps.EPS()
-#eps.reload()
-eps.test_load()
+eps.reload()
+#eps.test_load()
 
 obc = Obc.OBC()
 obc.test_load()
 
 app.layout = html.Div([
-    html.H1("Grid Layout"),
-    html.P("This grid layout contains six columns and three rows"),
+    html.H1("SpooQy-1 Ground Station"),
+    html.P("Hit refresh to reload"),
     
     html.Div(
         className="grid-container",

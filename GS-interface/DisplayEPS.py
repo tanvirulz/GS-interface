@@ -16,7 +16,8 @@ from contextFigGen import *
 
 
 def eps_context_fig(eps,tab):
-    return gen_context_fig(eps, tab[4:] )    
+    return gen_context_fig(eps, tab[4:] )   
+ 
 
 def eps_context_info(eps,tab,main_tab=""):
     return html.Table([
