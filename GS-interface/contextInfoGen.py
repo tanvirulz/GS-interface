@@ -1,6 +1,3 @@
-import gsclasses.Eps
-import gsclasses.Param
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -11,13 +8,6 @@ import plotly.graph_objs as go
 import time
 import datetime
 
-from contextFigGen import *
-
-
-
-def eps_context_fig(eps,tab):
-    return gen_context_fig(eps, tab[4:] )   
- 
 
 def eps_context_info(eps,tab,main_tab=""):
     return html.Table([

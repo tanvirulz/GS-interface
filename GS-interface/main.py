@@ -14,16 +14,18 @@ import datetime
 
 
 #custom display modules
-from contextTabs import *
+
 
 from gsclasses import Eps
+from gsclasses import Obc
+
 
 #import Eps
-from DisplayEPS import *
+#from DisplayEPS import *
 
-from gsclasses import Obc
-from DisplayOBC import *
-
+from contextTabs import *
+from contextInfoGen import eps_context_info
+from contextFigGen import gen_context_fig
 
 
 
@@ -107,8 +109,8 @@ def render_context_info(tab,main_tab):
 @app.callback(Output('tab-context-plot', 'children'),
               [Input("context-tabs", 'value'),Input("main-tabs", 'value')])
 def render_context_plot(tab,main_tab):
-    if main_tab == 'main-eps': return eps_context_fig(eps,tab)
-    elif main_tab == 'main-obc':return obc_context_fig(obc,tab)
+    if main_tab == 'main-eps': return gen_context_fig(eps, tab[4:] )
+    elif main_tab == 'main-obc':return gen_context_fig(obc,tab[4:])
     
             
 
