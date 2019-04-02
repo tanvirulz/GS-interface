@@ -42,8 +42,8 @@ from contextFigGen import gen_context_fig
 app = dash.Dash(__name__)
 
 eps = Eps.EPS()
-#eps.reload()
-eps.test_load()
+eps.reload()
+#eps.test_load()
 
 obc = Obc.OBC()
 obc.test_load()
