@@ -1,6 +1,16 @@
 '''
 Experiment with css grid layout with dash using python3 
 '''
+'''
+    TODO 
+    - Add all the main tabs
+    - Identify the sub-tabs to be shown
+    - Implement all the sub-tabs
+    - Add documentation
+    - Refresh button
+    - Time selection
+    - Link-up to the main server
+'''
 
 import dash
 import dash_core_components as dcc
