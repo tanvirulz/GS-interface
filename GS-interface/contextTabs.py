@@ -34,6 +34,11 @@ def genContextTabs(main_tab):
         ]
     elif main_tab == "main-ax100":
         return [
-            dcc.Tab(label='ax1', value='ax-val1'),
-            dcc.Tab(label='ax2', value='ax-val2'),
+            dcc.Tab(label='ax1', value='ax1-val1'),
+            dcc.Tab(label='ax2', value='ax1-val2'),
+        ]
+    elif main_tab == "main-ADCS":
+        return [
+            dcc.Tab(label='val1', value='adc-val1'),
+            dcc.Tab(label='val1', value='adc-val1'),
         ]

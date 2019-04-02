@@ -28,6 +28,8 @@ import datetime
 
 from gsclasses import Eps
 from gsclasses import Obc
+from gsclasses import Ax100
+from gsclasses import Adcs
 
 
 #import Eps
@@ -42,11 +44,21 @@ from contextFigGen import gen_context_fig
 app = dash.Dash(__name__)
 
 eps = Eps.EPS()
-eps.reload()
-#eps.test_load()
-
 obc = Obc.OBC()
+ax100 = Ax100.AX100()
+adcs = Adcs.ADCS()
+
+'''
+eps.reload()
+obc.reload()
+ax100.reload()
+adcs.reload()
+'''
+
+eps.test_load()
 obc.test_load()
+ax100.test_load()
+adcs.test_load()
 
 app.layout = html.Div([
     html.H1("SpooQy-1 Ground Station"),
@@ -63,6 +75,7 @@ app.layout = html.Div([
                         dcc.Tab(label='EPS', value='main-eps'),
                         dcc.Tab(label='OBC', value='main-obc'),
                         dcc.Tab(label='AX100', value='main-ax100'),
+                        dcc.Tab(label='ADCS', value='main-ADCS'),
     
                     ]),
                 ]

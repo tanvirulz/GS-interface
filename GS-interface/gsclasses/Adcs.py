@@ -2,9 +2,8 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
-import Param
-from Param import parameter
-
+from gsclasses import Param
+from gsclasses.Param import parameter
 
 
 class ADCS:
