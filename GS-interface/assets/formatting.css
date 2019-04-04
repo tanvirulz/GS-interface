@@ -1,10 +1,23 @@
+h3 {
+  background-color: lightblue;
+  margin-bottom: 0px;
+}
+
 .mainheader { grid-area: header; }
-.info { grid-area: info; }
-.subheader { 
-        grid-area: subhead; 
-  }
+.info { 
+      grid-area: info; 
+      font-family: monospace;
+      font-size: 15px;
+      /*margin-top: 20px;
+      margin-bottom: 20px;*/
+      font-weight: 400;
+      text-align: left;
+}
+
+.subheader { grid-area: subhead; }
+
 .contextinfo { 
-grid-area: cinfo; 
+        grid-area: cinfo; 
         font-family: monospace;
         font-size: 15px;
         /*margin-top: 20px;

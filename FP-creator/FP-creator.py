@@ -115,7 +115,11 @@ def create_command(fp_name,line,index,default_delay,execute_at_time):
         timer_activation_time = str(int(execute_at_time))
         timer_activation_time_ns = str(0)
         timer_repeat = str(1)
-        compiled_command = name+','+command+','+timer_state+','+timer_basis+','+timer_last_exec+','+timer_last_exec_ns+','+timer_activation_time+','+timer_last_exec_ns+','+timer_repeat+'\n'
+        compiled_command = name+','+command+',' \
+            +timer_state+','+timer_basis+',' \
+            +timer_last_exec+','+timer_last_exec_ns \
+            +','+timer_activation_time+',' \
+            +timer_last_exec_ns+','+timer_repeat+'\n'
         return default_delay,compiled_command
         
 

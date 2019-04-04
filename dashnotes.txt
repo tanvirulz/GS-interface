@@ -1,3 +1,7 @@
+use:
+ifconfig find out the ip address of this compouter 
+and try to deploy the code from this computer and access it form a remot compouter. 
+
 multiple axis dash example
 https://community.plot.ly/t/multiple-y-axes-name-on-top-of-each-other/10663
 

@@ -10,6 +10,7 @@ Experiment with css grid layout with dash using python3
     - Refresh button
     - Time selection
     - Link-up to the main server
+    - the parmeters might not be sorted in time. Check This!
 '''
 
 import dash
@@ -60,6 +61,52 @@ obc.test_load()
 ax100.test_load()
 adcs.test_load()
 
+def table_elem (field,val,unit=''):
+    return html.Tr([
+        html.Td([
+            str(field)
+        ]),
+        html.Td([
+            str(val) +' '+ str(unit)
+        ])
+    ])
+
+
+
+#TODO the parmeters might not be sorted in time. Check This!
+def gen_main_info(eps,obc,ax100,adcs):
+    #return "main info"
+    return html.Div( children=[ 
+        html.H3("power_input"),
+        html.Table([
+            table_elem ("CH1(11.7V):", eps.params["Cin_0"].Vals[-1], "mA"),
+            table_elem ("CH2(11.7V):", eps.params["Cin_1"].Vals[-1], "mA"),
+            table_elem ("CH3(3.3V):",  eps.params["Cin_2"].Vals[-1], "mA"),
+            
+        ]),
+        html.H3("power_output"),
+        html.Table([
+            table_elem ("OBC(3.3V):", eps.params["C_obc"].Vals[-1], "mA"),
+            table_elem ("AX100(3.3V):", eps.params["C_radio"].Vals[-1], "mA"),
+            table_elem ("V_payload(5V):", eps.params["C_payload"].Vals[-1], "mA"),
+           
+            table_elem ("Battery mode:", eps.params["battmode"].Vals[-1], "mA"),
+        ]),
+        html.Hr(),
+        html.Table([
+            table_elem ("Battery mode:", eps.params["battmode"].Vals[-1]),
+            table_elem ("Battery voltage:", eps.params["vbatt"].Vals[-1]/1000, "V"),
+            table_elem ("EPS ground watchdog:", eps.params["wdt_GND"].Vals[-1]),
+            table_elem ("EPS Boot count:", eps.params["boot_cnt"].Vals[-1]),
+        ]),
+        html.Hr(),
+        html.Table([
+            table_elem ("OBC temp A:", obc.params["temp_a"].Vals[-1]),
+            table_elem ("OBC Boot count:", obc.params["boot_count"].Vals[-1]/1000, "V"),
+        ])
+    ])
+
+
 app.layout = html.Div([
     html.H1("SpooQy-1 Ground Station"),
     html.P("Hit refresh to reload"),
@@ -83,7 +130,7 @@ app.layout = html.Div([
             ),
             html.Div(
                 className="info",
-                children="info"
+                children= gen_main_info(eps,obc,ax100,adcs) #"info"
             ),
             html.Div(
                 className="subheader",
@@ -107,6 +154,10 @@ app.layout = html.Div([
 
 
 ])
+
+
+
+
 
 @app.callback(Output('context-tabs', 'value'),
               [Input("main-tabs", 'value')])
@@ -132,7 +183,7 @@ def render_context_info(tab,main_tab):
 @app.callback(Output('tab-context-plot', 'children'),
               [Input("context-tabs", 'value'),Input("main-tabs", 'value')])
 def render_context_plot(tab,main_tab):
-    if main_tab == 'main-eps': return gen_context_fig(eps, tab[4:] )
+    if main_tab == 'main-eps': return gen_context_fig(eps, tab[4:])
     elif main_tab == 'main-obc':return gen_context_fig(obc,tab[4:])
     
             
