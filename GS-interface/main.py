@@ -30,7 +30,7 @@ import datetime
 from gsclasses import Eps
 from gsclasses import Obc
 from gsclasses import Ax100
-from gsclasses import Adcs
+from gsclasses import Adcs 
 
 
 #import Eps
@@ -49,13 +49,17 @@ obc = Obc.OBC()
 ax100 = Ax100.AX100()
 adcs = Adcs.ADCS()
 
+
 '''
+#reloads data from the main Mongodb
 eps.reload()
 obc.reload()
 ax100.reload()
 adcs.reload()
 '''
 
+
+#loads random test data
 eps.test_load()
 obc.test_load()
 ax100.test_load()
@@ -122,7 +126,7 @@ app.layout = html.Div([
                         dcc.Tab(label='EPS', value='main-eps'),
                         dcc.Tab(label='OBC', value='main-obc'),
                         dcc.Tab(label='AX100', value='main-ax100'),
-                        dcc.Tab(label='ADCS', value='main-ADCS'),
+                        dcc.Tab(label='ADCS', value='main-adcs'),
     
                     ]),
                 ]
@@ -185,7 +189,8 @@ def render_context_info(tab,main_tab):
 def render_context_plot(tab,main_tab):
     if main_tab == 'main-eps': return gen_context_fig(eps, tab[4:])
     elif main_tab == 'main-obc':return gen_context_fig(obc,tab[4:])
-    
+    elif main_tab == 'main-ax100': return gen_context_fig(ax100,tab[4:])
+    elif main_tab == 'main-adcs': return gen_context_fig(adcs,tab[4:])
             
 
 

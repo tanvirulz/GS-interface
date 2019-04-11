@@ -26,6 +26,7 @@ def genContextTabs(main_tab):
             dcc.Tab(label='temp_4', value='eps-temp_4'),
             dcc.Tab(label='temp_5', value='eps-temp_5'), #C_payload
             dcc.Tab(label='C_payload', value='eps-C_payload'),
+            dcc.Tab(label='Vin_0', value='eps-Vin_0'),#Vin_0
         ]
     elif main_tab == "main-obc":
         return [
