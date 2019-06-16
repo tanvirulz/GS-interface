@@ -32,7 +32,7 @@ class EPS:
         
         self.params['temp_3'] =  parameter('temp',idx=3)
         
-        self.params['temp_4'] =  parameter('temp',idx=4)
+        self.params['temp_4'] =  parameter('temp',idx=4) #battery temperature
         self.params['temp_5'] =  parameter('temp',idx=5)
         
         # Solar power input

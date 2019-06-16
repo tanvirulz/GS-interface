@@ -31,7 +31,9 @@ class OBC:
         self.params['pwrGSSB1'] = parameter('pwrGSSB1')               
         self.params['pwrGSSB2'] = parameter('pwrGSSB2')               
         self.params['pwrflash'] = parameter('pwrFlash')               
-        self.params['pwrPWM'] = parameter('pwrPWM')               
+        self.params['pwrPWM'] = parameter('pwrPWM')     
+
+        #these should go to the context menu
         self.params['swload_count'] = parameter('swload_count')               
         self.params['fs_mounted'] = parameter('fs_mounted')               
         self.params['boot_count'] = parameter('boot_count')               

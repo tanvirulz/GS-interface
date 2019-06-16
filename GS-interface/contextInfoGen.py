@@ -9,7 +9,9 @@ import time
 import datetime
 
 
-def eps_context_info(eps,tab,main_tab=""):
+def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
+
+    
     return html.Table([
         html.Tr([
             html.Td([

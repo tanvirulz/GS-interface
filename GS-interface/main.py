@@ -65,6 +65,7 @@ obc.test_load()
 ax100.test_load()
 adcs.test_load()
 
+
 def table_elem (field,val,unit=''):
     return html.Tr([
         html.Td([
@@ -169,6 +170,7 @@ def select_default_context_tab(main_tab):
     if main_tab == "main-eps": return 'eps-vbatt'
     elif main_tab == "main-obc": return 'obc-temp_a'
     elif main_tab == "main-ax100": return 'ax-val1'
+    elif main_tab == "main-adcs": return 'adc-gyro_0'
 
 @app.callback(Output('context-tabs', 'children'),
               [Input("main-tabs", 'value')])
@@ -180,8 +182,8 @@ def render_context_tabs(main_tab):
 @app.callback(Output('tab-context-info', 'children'),
               [Input("context-tabs", 'value'),Input("main-tabs", 'value')])
 def render_context_info(tab,main_tab):
-    #return eps_context_info(eps,tab,main_tabs)
-    return main_tab
+    return eps_context_info(eps,obc,ax100,adcs,tab,main_tab)
+    #return main_tab
     
 
 @app.callback(Output('tab-context-plot', 'children'),
