@@ -22,26 +22,26 @@ class ADCS:
         
         self.params = {}
         
-        self.params['gyro_0'] =  parameter('gyro',idx=0)
-        self.params['gyro_1'] =  parameter('gyro',idx=1)
-        self.params['gyro_2'] =  parameter('gyro',idx=2)
+        self.params['gyro_0'] =  parameter('gyro',idx=0,y_label='rpm',p_title='gyro reading 0')
+        self.params['gyro_1'] =  parameter('gyro',idx=1,y_label='rpm',p_title='gyro reading 1')
+        self.params['gyro_2'] =  parameter('gyro',idx=2,y_label='rpm',p_title='gyro reading 2')
         self.params['gyro_trend_0'] =  parameter('gyro_trend',idx=0)
         self.params['gyro_trend_1'] =  parameter('gyro_trend',idx=1)
         self.params['gyro_trend_2'] =  parameter('gyro_trend',idx=2)
-        self.params['gyro_temp'] = parameter('gyro_temp')
-        self.params['gyro_valid'] = parameter('gyro_valid')
+        self.params['gyro_temp'] = parameter('gyro_temp', y_label="Temperature (C)")
+        self.params['gyro_valid'] = parameter('gyro_valid', y_label= 'Flag')
         
         self.params['mag_0'] =  parameter('mag',idx=0)
         self.params['mag_1'] =  parameter('mag',idx=1)
         self.params['mag_2'] =  parameter('mag',idx=2)
         self.params['mag_valid'] = parameter('mag_valid')
         
-        self.params['suns_temp_0'] =  parameter('suns',idx=0)
-        self.params['suns_temp_1'] =  parameter('suns',idx=1)
-        self.params['suns_temp_2'] =  parameter('suns',idx=2)
-        self.params['suns_temp_3'] =  parameter('suns',idx=3)
-        self.params['suns_temp_4'] =  parameter('suns',idx=4)
-        self.params['suns_temp_5'] =  parameter('suns',idx=5)  
+        self.params['suns_temp_0'] =  parameter('suns',idx=0,y_label="Temperature (C)", p_title="Outside temperature 0")
+        self.params['suns_temp_1'] =  parameter('suns',idx=1,y_label="Temperature (C)", p_title="Outside temperature 1")
+        self.params['suns_temp_2'] =  parameter('suns',idx=2,y_label="Temperature (C)", p_title="Outside temperature 2")
+        self.params['suns_temp_3'] =  parameter('suns',idx=3,y_label="Temperature (C)", p_title="Outside temperature 3")
+        self.params['suns_temp_4'] =  parameter('suns',idx=4,y_label="Temperature (C)", p_title="Outside temperature 4")
+        self.params['suns_temp_5'] =  parameter('suns',idx=5,y_label="Temperature (C)", p_title="Outside temperature 5")
         #self.params['mag_valid'] =  parameter('mag_valid') 
         
         self.params['torquer_duty_0'] =  parameter('torquer_duty',idx=0)

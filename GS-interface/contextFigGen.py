@@ -21,7 +21,20 @@ def gen_context_fig(container,pname):
                     'x': container.params[pname].sTs,
                     'y': container.params[pname].Vals,
                     'type': 'scatter'
-                }]
+                }],
+                'layout': go.Layout(
+                    xaxis={'title': 'time'},
+                    yaxis={'title': container.params[pname].y_label},
+                    #margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                    #legend={'x': 0, 'y': 1},
+                    title = container.params[pname].p_title,
+                    hovermode='closest'
+                )
+                #'layout': {
+                #'title': container.params[pname].p_title,
+                #'xaxis': "time"
+                #}
+
             }
         )
     ])

@@ -22,16 +22,16 @@ class OBC:
         
         self.params = {}
 
-        self.params['curGSSB1'] = parameter('curGSSB1')               
-        self.params['curGSSB2'] = parameter('curGSSB2')
-        self.params['curflash'] = parameter('curFlash')
-        self.params['curPWM'] = parameter('curPWM')               
-        self.params['temp_a'] = parameter('temp_a')  
-        self.params['temp_b'] = parameter('temp_b')               
-        self.params['pwrGSSB1'] = parameter('pwrGSSB1')               
-        self.params['pwrGSSB2'] = parameter('pwrGSSB2')               
-        self.params['pwrflash'] = parameter('pwrFlash')               
-        self.params['pwrPWM'] = parameter('pwrPWM')     
+        self.params['curGSSB1'] = parameter('curGSSB1',y_label="Current (mA)", p_title="GSSB1 current")               
+        self.params['curGSSB2'] = parameter('curGSSB2',y_label="Current (mA)", p_title="GSSB2 current")               
+        self.params['curflash'] = parameter('curFlash',y_label="Current (mA)", p_title="Flash current")               
+        self.params['curPWM'] = parameter('curPWM',y_label="Current (mA)", p_title="PWM current")                              
+        self.params['temp_a'] = parameter('temp_a',y_label="Temperature (C)",p_title="OBC temperature A",n_factor=0.1 )  
+        self.params['temp_b'] = parameter('temp_b',y_label="Temperature (C)",p_title="OBC temperature B",n_factor=0.1 )  
+        self.params['pwrGSSB1'] = parameter('pwrGSSB1', y_label="Enable", p_title="GSSB1 power")               
+        self.params['pwrGSSB2'] = parameter('pwrGSSB2', y_label="Enable", p_title="GSSB2 power")
+        self.params['pwrflash'] = parameter('pwrFlash', y_label="Enable", p_title="Flash power")
+        self.params['pwrPWM'] = parameter('pwrPWM', y_label="Enable", p_title="PWM power")
 
         #these should go to the context menu
         self.params['swload_count'] = parameter('swload_count')               

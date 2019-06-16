@@ -47,7 +47,7 @@ ax100 = Ax100.AX100()
 adcs = Adcs.ADCS()
 
 
-'''
+
 #reloads data from the main Mongodb
 eps.reload()
 obc.reload()
@@ -61,7 +61,7 @@ eps.test_load()
 obc.test_load()
 ax100.test_load()
 adcs.test_load()
-
+'''
 
 
 #TODO the parmeters might not be sorted in time. Check This!
@@ -81,7 +81,7 @@ def gen_main_info(eps,obc,ax100,adcs):
             table_elem ("AX100(3.3V):", eps.params["C_radio"].Vals[-1], "mA"),
             table_elem ("V_payload(5V):", eps.params["C_payload"].Vals[-1], "mA"),
            
-            table_elem ("Battery mode:", eps.params["battmode"].Vals[-1], "mA"),
+            table_elem ("Battery mode:", eps.params["battmode"].Vals[-1]),
         ]),
         html.Hr(),
         html.Table([
@@ -155,7 +155,7 @@ app.layout = html.Div([
 def select_default_context_tab(main_tab):
     if main_tab == "main-eps": return 'eps-vbatt'
     elif main_tab == "main-obc": return 'obc-temp_a'
-    elif main_tab == "main-ax100": return 'ax-val1'
+    elif main_tab == "main-ax100": return 'ax1-temp_brd'
     elif main_tab == "main-adcs": return 'adc-gyro_0'
 
 @app.callback(Output('context-tabs', 'children'),

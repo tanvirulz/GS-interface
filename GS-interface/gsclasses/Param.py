@@ -5,13 +5,19 @@ import time
 from random import shuffle
 
 class parameter:
-    def __init__(self,pname,idx=None,node=None):
+    def __init__(self,pname,idx=None,node=None,y_label="", p_title=None,n_factor = 1):
         self.name = pname
         self.Ts = None #ephoch time 
         self.sTs =None #time in string format
         self.Vals = None
         self.idx  = idx
         self.node = node
+        self.y_label = y_label
+        self.n_factor = n_factor
+        if p_title is None :
+            self.p_title = pname + ' vs. time'
+        else:
+            self.p_title = p_title 
     def getdata(self,db,Ts_conditions, idx=None, node=None):
         conditions = []
         if self.name is None:
@@ -36,7 +42,7 @@ class parameter:
             #    continue 
             self.Ts.append(x['Ts'])
             self.sTs.append( time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x['Ts'])) ) 
-            self.Vals.append(x['Val'])
+            self.Vals.append(x['Val']*self.n_factor)
 
     
     def status (self):
@@ -50,3 +56,4 @@ class parameter:
         self.Vals = list(range(10))
         shuffle(self.Vals )
         self.sTs = list(range(10))
+        self.y_label = self.name + ' (unit)'

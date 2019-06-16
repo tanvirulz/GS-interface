@@ -34,6 +34,8 @@ def genContextTabs(main_tab):
             dcc.Tab(label='Cin_1', value='eps-Cin_1'),
             dcc.Tab(label='Cin_2', value='eps-Cin_2'),
             
+            dcc.Tab(label='boot_cnt', value='eps-boot_cnt'),
+
             #power output
             dcc.Tab(label='C_payload', value='eps-C_payload'),
             dcc.Tab(label='V_payload', value='eps-V_payload'),

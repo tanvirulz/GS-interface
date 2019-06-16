@@ -19,19 +19,27 @@ def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
                 table_elem ("wdt_i2c:", eps.params["wdt_i2c"].Vals[-1]),
                 table_elem ("cntWdtI2c:", eps.params["cntWdtI2c"].Vals[-1]),
                 table_elem ("cntWdtCsp_0:",  eps.params["cntWdtCsp_0"].Vals[-1]),
-                table_elem ("bootCause:",  eps.params["bootCause"].Vals[-1]),
+                table_elem ("Boot Count:",  eps.params["boot_cnt"].Vals[-1]),
+                table_elem ("Last bootCause:",  eps.params["bootCause"].Vals[-1]),
             ]),        
             
         ])   
     elif main_tab == 'main-obc': 
+        last_obc_epoch = obc.params["clock"].Vals[-1]
+        stt  = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(last_obc_epoch))
         return html.Div( children=[ 
             html.H3("OBC info"),
             html.Table([
                 table_elem ("swload_count:", obc.params["swload_count"].Vals[-1]),
                 table_elem ("fs_mounted:", obc.params["fs_mounted"].Vals[-1]),
-                table_elem ("boot_count:",  obc.params["boot_count"].Vals[-1]),
-                table_elem ("clock:",  obc.params["clock"].Vals[-1]),
-            ]),        
+                table_elem ("boot_count:",  int(obc.params["boot_count"].Vals[-1]) ) ,
+                
+                #time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(1540261800))  #time.localtime(obc.params["clock"].Vals[-1]))
+                table_elem ("last OBC epoch:",  int(last_obc_epoch) ),
+                #table_elem ("As SG_time:",  stt ),
+                #table_elem ("clock:",  tt),
+            ]),
+            html.H4(stt),        
         ]) 
     elif main_tab == 'main-ax100': 
         return html.Div( children=[ 
@@ -39,7 +47,9 @@ def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
             html.Table([
                 table_elem ("boot_count:", ax100.params["boot_count"].Vals[-1]),
                 table_elem ("boot_cause:", ax100.params["boot_cause"].Vals[-1]),
-                table_elem ("active_conf:",  ax100.params["active_conf"].Vals[-1]),
+                table_elem ("active_conf:",  ax100.params["active_conf"].Vals[-1]), 
+                table_elem ("last_rssi:",  ax100.params["active_clast_rssionf"].Vals[-1],'dB'), 
+                
                 
             ]),        
         
