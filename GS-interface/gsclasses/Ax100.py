@@ -31,6 +31,7 @@ class AX100:
         self.params['tot_rx_cnt'] = parameter('tot_rx_count')
         self.params['tot_tx_bytes'] = parameter('tot_tx_bytes')
         self.params['tot_rx_bytes'] = parameter('tot_rx_bytes')
+        
         self.params['boot_count'] = parameter('boot_count')
         self.params['boot_cause'] = parameter('boot_cause')
         self.params['tx_bytes'] = parameter('tx_bytes')

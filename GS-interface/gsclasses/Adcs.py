@@ -42,7 +42,7 @@ class ADCS:
         self.params['suns_temp_3'] =  parameter('suns',idx=3)
         self.params['suns_temp_4'] =  parameter('suns',idx=4)
         self.params['suns_temp_5'] =  parameter('suns',idx=5)  
-        self.params['mag_valid'] =  parameter('mag_valid') 
+        #self.params['mag_valid'] =  parameter('mag_valid') 
         
         self.params['torquer_duty_0'] =  parameter('torquer_duty',idx=0)
         self.params['torquer_duty_1'] =  parameter('torquer_duty',idx=1)

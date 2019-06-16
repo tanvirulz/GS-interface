@@ -3,10 +3,7 @@ Experiment with css grid layout with dash using python3
 '''
 '''
     TODO 
-    - Add all the main tabs
-    - Identify the sub-tabs to be shown
-    - Implement all the sub-tabs
-    - Add documentation
+        - Add documentation
     - Refresh button
     - Time selection
     - Link-up to the main server
@@ -40,7 +37,7 @@ from contextTabs import *
 from contextInfoGen import eps_context_info
 from contextFigGen import gen_context_fig
 
-
+from dataTableHelper import table_elem
 
 app = dash.Dash(__name__)
 
@@ -64,17 +61,6 @@ eps.test_load()
 obc.test_load()
 ax100.test_load()
 adcs.test_load()
-
-
-def table_elem (field,val,unit=''):
-    return html.Tr([
-        html.Td([
-            str(field)
-        ]),
-        html.Td([
-            str(val) +' '+ str(unit)
-        ])
-    ])
 
 
 
@@ -114,7 +100,7 @@ def gen_main_info(eps,obc,ax100,adcs):
 
 app.layout = html.Div([
     html.H1("SpooQy-1 Ground Station"),
-    html.P("Hit refresh to reload"),
+    html.P("Hit refresh to load latest data"),
     
     html.Div(
         className="grid-container",
