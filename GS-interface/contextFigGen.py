@@ -23,7 +23,7 @@ def gen_context_fig(container,pname):
                     'type': 'scatter'
                 }],
                 'layout': go.Layout(
-                    xaxis={'title': 'time'},
+                    xaxis={'title': 'Time'},
                     yaxis={'title': container.params[pname].y_label},
                     #margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
                     #legend={'x': 0, 'y': 1},

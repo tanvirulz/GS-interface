@@ -21,8 +21,8 @@ class AX100:
         
         self.params = {}
         
-        self.params['temp_brd'] = parameter('temp_brd', y_label="Temperature (C)",p_title="Ax100 board temperature")
-        self.params['temp_pa'] = parameter('temp_pa', y_label="Temperature (C)",p_title="Ax100 temperature near PA")
+        self.params['temp_brd'] = parameter('temp_brd', y_label="Temperature (C)",p_title="Ax100 board temperature",n_factor=0.1)
+        self.params['temp_pa'] = parameter('temp_pa', y_label="Temperature (C)",p_title="Ax100 temperature near PA",n_factor=0.1)
         self.params['last_rssi'] = parameter('last_rssi', y_label='rssi (dB)',p_title="Last_rssi")
         self.params['last_rferr'] = parameter('last_rferr')
         self.params['bgnd_rssi'] = parameter('bgnd_rssi')

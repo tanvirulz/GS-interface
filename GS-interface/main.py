@@ -1,6 +1,7 @@
 '''
 Experiment with css grid layout with dash using python3 
 '''
+
 '''
     TODO 
         - Add documentation
@@ -41,11 +42,22 @@ from dataTableHelper import table_elem
 
 app = dash.Dash(__name__)
 
-eps = Eps.EPS()
-obc = Obc.OBC()
-ax100 = Ax100.AX100()
-adcs = Adcs.ADCS()
-
+'''
+eps = Eps.EPS(dbname="CQT",start_time=1558076218) 
+obc = Obc.OBC(dbname="CQT",start_time=1558076218) 1549099037
+ax100 = Ax100.AX100(dbname="CQT",start_time=1558076218)
+adcs = Adcs.ADCS(dbname="CQT",start_time=1558076218)
+'''
+#st=1560716400 #start_time
+#et=1561104130 #end_time 
+st = None
+et = None
+DB_NAME = "CQT"
+#DB_NAME = "SWGS"
+eps = Eps.EPS(dbname=DB_NAME,start_time=st, end_time=et) 
+obc = Obc.OBC(dbname=DB_NAME,start_time=st, end_time=et) 
+ax100 = Ax100.AX100(dbname=DB_NAME,start_time=st, end_time=et) 
+adcs = Adcs.ADCS(dbname=DB_NAME,start_time=st, end_time=et) 
 
 
 #reloads data from the main Mongodb
@@ -53,14 +65,15 @@ eps.reload()
 obc.reload()
 ax100.reload()
 adcs.reload()
-'''
 
+'''
 
 #loads random test data
 eps.test_load()
 obc.test_load()
 ax100.test_load()
 adcs.test_load()
+
 '''
 
 

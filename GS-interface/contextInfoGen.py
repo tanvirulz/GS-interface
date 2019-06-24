@@ -48,7 +48,7 @@ def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
                 table_elem ("boot_count:", ax100.params["boot_count"].Vals[-1]),
                 table_elem ("boot_cause:", ax100.params["boot_cause"].Vals[-1]),
                 table_elem ("active_conf:",  ax100.params["active_conf"].Vals[-1]), 
-                table_elem ("last_rssi:",  ax100.params["active_clast_rssionf"].Vals[-1],'dB'), 
+                #table_elem ("last_rssi:",  ax100.params["active_clast_rssionf"].Vals[-1],'dB'), 
                 
                 
             ]),        
