@@ -26,7 +26,7 @@ def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
         ])   
     elif main_tab == 'main-obc': 
         last_obc_epoch = obc.params["clock"].Vals[-1]
-        stt  = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(last_obc_epoch))
+        #stt  = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(last_obc_epoch))
         return html.Div( children=[ 
             html.H3("OBC info"),
             html.Table([
@@ -35,7 +35,7 @@ def eps_context_info(eps,obc,ax100,adcs,tab,main_tab=""):
                 table_elem ("boot_count:",  int(obc.params["boot_count"].Vals[-1]) ) ,
                 
                 #time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(1540261800))  #time.localtime(obc.params["clock"].Vals[-1]))
-                table_elem ("last OBC epoch:",  int(last_obc_epoch) ),
+                #table_elem ("last OBC epoch:",  int(last_obc_epoch) ),
                 #table_elem ("As SG_time:",  stt ),
                 #table_elem ("clock:",  tt),
             ]),

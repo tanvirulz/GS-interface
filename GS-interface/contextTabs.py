@@ -19,7 +19,7 @@ def genContextTabs(main_tab):
             dcc.Tab(label='vbatt', value='eps-vbatt'),
             dcc.Tab(label='c-obc', value='eps-C_obc'),
             dcc.Tab(label='c-radio', value='eps-C_radio'), #temp_0
-            #dcc.Tab(label='temp_0', value='eps-temp_0'),
+            dcc.Tab(label='temp_0', value='eps-temp_0'),
             #dcc.Tab(label='temp_1', value='eps-temp_1'),
             #dcc.Tab(label='temp_2', value='eps-temp_2'),
             #dcc.Tab(label='temp_3', value='eps-temp_3'),
@@ -33,6 +33,7 @@ def genContextTabs(main_tab):
             dcc.Tab(label='Cin_0', value='eps-Cin_0'),
             dcc.Tab(label='Cin_1', value='eps-Cin_1'),
             dcc.Tab(label='Cin_2', value='eps-Cin_2'),
+            dcc.Tab(label='Cin_combined', value='eps-Cin_comb'),
             
             dcc.Tab(label='boot_cnt', value='eps-boot_cnt'),
 

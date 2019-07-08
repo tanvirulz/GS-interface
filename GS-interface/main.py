@@ -48,12 +48,23 @@ obc = Obc.OBC(dbname="CQT",start_time=1558076218) 1549099037
 ax100 = Ax100.AX100(dbname="CQT",start_time=1558076218)
 adcs = Adcs.ADCS(dbname="CQT",start_time=1558076218)
 '''
-#st=1560716400 #start_time
+
+#st=1560716400 #start_time 17th June
+st= 1562169600 #july 4 00:00 
 #et=1561104130 #end_time 
-st = None
-et = None
-DB_NAME = "CQT"
+#et=1561950429 #end_time  28th June
+#et=1561976513 #end_time  1st July
+#et=1562060929 # 2nd July
+
+#et=1562123058 # 3rd July
+#et=1562209657 #3th july
+et = 1562577717 # July 8
+#et = None 
+#st = None
+#et = None
+DB_NAME = "SWGS13"
 #DB_NAME = "SWGS"
+
 eps = Eps.EPS(dbname=DB_NAME,start_time=st, end_time=et) 
 obc = Obc.OBC(dbname=DB_NAME,start_time=st, end_time=et) 
 ax100 = Ax100.AX100(dbname=DB_NAME,start_time=st, end_time=et) 
@@ -73,8 +84,8 @@ eps.test_load()
 obc.test_load()
 ax100.test_load()
 adcs.test_load()
-
 '''
+
 
 
 #TODO the parmeters might not be sorted in time. Check This!
@@ -198,3 +209,4 @@ def render_context_plot(tab,main_tab):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+    #app.run_server(debug=False, host='0.0.0.0', port = 8080)
