@@ -59,6 +59,52 @@ def gen_context_fig(container,pname):
 
         ])
 
+    if pname == 'Illumination':
+        return html.Div(className="figure",children=[
+            dcc.Graph(
+                id='context-plot',
+                figure={
+                    'data': [{
+                        'x': container.params["X_illum"].sTs,
+                        'y': container.params["X_illum"].Vals,
+                        'type': 'bar',
+                        #'type': 'scatter',
+                        'name': 'X',
+                    },
+                    {
+                        'x': container.params["Y_illum"].sTs,
+                        'y': container.params["Y_illum"].Vals,
+                        'type': 'bar',
+                        #'type': 'scatter',
+                        'name': 'Y',
+                    },
+                    {
+                        'x': container.params["Z_illum"].sTs,
+                        'y': container.params["Z_illum"].Vals,
+                        'type': 'bar',
+                        #'type': 'scatter',
+                        'name': 'Z',
+                    }
+                    
+                    ],
+                    'layout': go.Layout(
+                        xaxis={'title': 'Time'},
+                        yaxis={ 'title': 'Illumination \%'}, #'title': container.params["Cin_0"].y_label},
+                        #margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                        #legend={'x': 0, 'y': 1},
+                        title = "Illumination of X,Y and Z sides", #container.params["Cin_0"].p_title,
+                        hovermode='closest'
+                    )
+                    #'layout': {
+                    #'title': container.params[pname].p_title,
+                    #'xaxis': "time"
+                    #}
+
+                }
+            )
+
+        ])
+    
     return html.Div(className="figure",children=[
         dcc.Graph(
             id='context-plot',

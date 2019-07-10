@@ -1,10 +1,13 @@
 import datetime
+import time
 import pymongo
 from pymongo import MongoClient
 
 from gsclasses import Param
 from gsclasses.Param import parameter
 
+from gsclasses.HelperFunctions import piecewise_integrate
+from gsclasses.HelperFunctions import normalize
 
 
 class EPS:
@@ -64,7 +67,9 @@ class EPS:
         self.params['cntwdtGND'] = parameter('cntWdtGnd')
         self.params['cntWdtCsp_0'] = parameter('cntWdtCsp',idx=0)         
         self.params['cntWdtCsp_1'] = parameter('cntWdtCsp',idx=1)         
-        self.params['bootCause'] = parameter('bootcause')                 
+        self.params['bootCause'] = parameter('bootcause')
+
+        
         
         if self.st is not None:
             self.Ts_conditions['$gte'] = int(self.st)
@@ -87,10 +92,55 @@ class EPS:
     def reload(self):
         if self.db is None:
             self.connect()
-        
-        
+
         for key, value in self.params.items():
-            value.getdata(self.db,self.Ts_conditions)
+            value.getdata(self.db,self.Ts_conditions) 
+        
+        #self.derive_illumination_per_orbit()
+    
+    def derive_illumination_per_orbit(self,integration_start):
+        period = 1562180280- 1562174640  #by observation
+        num_orbit = int ((self.et - integration_start)/ period )
+        #artificially created parameters
+        self.params['X_illum'] = parameter('X_illum')
+        self.params['Y_illum'] = parameter('Y_illum')
+        self.params['Z_illum'] = parameter('Z_illum')
+
+        cx_val = self.params['Cin_0'].Vals[::-1]
+        cy_val = self.params['Cin_1'].Vals[::-1]
+        cz_val = self.params['Cin_2'].Vals[::-1]
+        cx_t = self.params['Cin_0'].Ts[::-1]
+        cy_t = self.params['Cin_1'].Ts[::-1]
+        cz_t = self.params['Cin_2'].Ts[::-1]
+
+
+        rxv,rxt = piecewise_integrate(cx_val,cx_t,integration_start,period,num_orbit)
+        ryv,ryt = piecewise_integrate(cy_val,cy_t,integration_start,period,num_orbit)
+        rzv,rzt = piecewise_integrate(cz_val,cz_t,integration_start,period,num_orbit)
+
+        nx,ny,nz = normalize(rxv,ryv,rzv)
+
+        self.params['X_illum'].Ts = rxt 
+        self.params['X_illum'].Vals = nx
+        
+        self.params['X_illum'].sTs = []
+        for t in rxt :
+            self.params['X_illum'].sTs.append( time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t)) ) 
+
+
+        self.params['Y_illum'].Ts = ryt 
+        self.params['Y_illum'].Vals = ny
+        self.params['Y_illum'].sTs = []
+        for t in ryt :
+            self.params['Y_illum'].sTs.append( time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t)) ) 
+
+        self.params['Z_illum'].Ts = rzt 
+        self.params['Z_illum'].Vals = nz
+        self.params['Z_illum'].sTs = []
+        for t in rzt :
+            self.params['Z_illum'].sTs.append( time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t)) ) 
+
+
 
     def test_load(self):
         for key, value in self.params.items():

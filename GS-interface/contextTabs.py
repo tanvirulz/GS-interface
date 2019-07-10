@@ -34,6 +34,9 @@ def genContextTabs(main_tab):
             dcc.Tab(label='Cin_1', value='eps-Cin_1'),
             dcc.Tab(label='Cin_2', value='eps-Cin_2'),
             dcc.Tab(label='Cin_combined', value='eps-Cin_comb'),
+            dcc.Tab(label='X_illum',value='eps-X_illum'),
+            
+            dcc.Tab(label='Illumination', value='eps-Illumination'),
             
             dcc.Tab(label='boot_cnt', value='eps-boot_cnt'),
 
