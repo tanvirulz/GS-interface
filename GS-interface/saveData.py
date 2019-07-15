@@ -21,7 +21,9 @@ DB_NAME = "SWGS13"
 eps = Eps.EPS(dbname=DB_NAME,start_time=st, end_time=et) 
 
 
-eps.test_load()
+#eps.test_load()
+eps.reload()
 
-self.params['Cin_0']
+eps.params['Cin_0'].to_csv("testcin0.csv")
+eps.params['vbatt'].to_csv()
 

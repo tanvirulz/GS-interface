@@ -1,5 +1,6 @@
 import pymongo
 import time
+import pandas as pd
 
 #needed for test only
 from random import shuffle
@@ -47,7 +48,23 @@ class parameter:
     
     def status (self):
         print (self.name, "idx=",self.idx,"node=",self.node, "len(Ts)=",len(self.Ts),"len(Vals)=", len(self.Vals))
-
+    
+    def to_csv(self, file_name=None):
+        df = pd.DataFrame(columns=['Timestamp', 'date-time', self.name])
+        fname  = ""
+        if file_name is None: 
+            fname = self.name +"-"+ self.sTs[0]+".csv"
+        else: 
+            fname = file_name
+        
+        df['Timestamp'] = self.Ts
+        df['date-time'] = self.sTs
+        df[self.name] = self.Vals
+        df.to_csv(fname,index=False)
+        print ("Data written to:",fname)
+   
+        
+    
     '''
     helper function for testing
     '''
@@ -57,3 +74,4 @@ class parameter:
         shuffle(self.Vals )
         self.sTs = list(range(10))
         self.y_label = self.name + ' (unit)'
+        
