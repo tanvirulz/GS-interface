@@ -31,7 +31,7 @@ st = 1527799087 #june 6 2018
 #et = 1606366153 #26 Nov 2020 
 et = 1606366153 #May 5 2020
 
-DB_NAME = "SWGS50"
+DB_NAME = "NUSGS20"
 #DB_NAME = "SWGS"
 
 eps = Eps.EPS(dbname=DB_NAME,start_time=st, end_time=et) 
@@ -56,6 +56,6 @@ qrng.reload()
 #qrng.params['curData_1'].to_csv("paramdata1.csv")
 
 for i in range (32):
-    qrng.params["curData_"+str(i)].to_csv("SWZcurdata_"+str(i))
+    qrng.params["curData_"+str(i)].to_csv("NUSbeaconByte_"+str(i)+".csv")
 
 
