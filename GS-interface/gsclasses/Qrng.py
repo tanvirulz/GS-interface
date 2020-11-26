@@ -2,9 +2,8 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
-import Param
-from Param import parameter
-
+import gsclasses.Param
+from gsclasses.Param import parameter
 
 class QRNG:
     
@@ -49,7 +48,7 @@ class QRNG:
     #    self.client.close()
         
     def connect (self):
-        self.client = MongoClient('localhost',27017)
+        self.client = MongoClient('localhost',27017,unicode_decode_error_handler='ignore')
         self.db = self.client[self.dbname]
     
     
